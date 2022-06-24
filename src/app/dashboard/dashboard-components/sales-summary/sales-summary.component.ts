@@ -60,11 +60,11 @@ export class SalesSummaryComponent implements OnInit {
           easing: 'easeinout',
           speed: 800,
           animateGradually: {
-              enabled: false,
+              enabled: true,
               delay: 150
           },
           dynamicAnimation: {
-              enabled: false,
+              enabled: true,
               speed: 350
           }
       }
@@ -86,8 +86,7 @@ export class SalesSummaryComponent implements OnInit {
 
       },
       yaxis:{
-        min: 0,
-        max: 100,
+
       },
       tooltip: {
         theme: 'dark'
