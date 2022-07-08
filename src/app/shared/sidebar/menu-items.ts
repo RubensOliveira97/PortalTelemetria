@@ -15,7 +15,7 @@ export const ROUTES: RouteInfo[] = [
 
   {
     path: '/component/reports',
-    title: 'Reports',
+    title: 'Relatorios',
     icon: 'bi bi-card-text',
     class: '',
     extralink: false,
@@ -25,7 +25,7 @@ export const ROUTES: RouteInfo[] = [
 
   {
     path: '/about',
-    title: 'About',
+    title: 'Sobre',
     icon: 'bi bi-people',
     class: '',
     extralink: false,
