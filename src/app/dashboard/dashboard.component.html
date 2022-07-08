@@ -1,13 +1,15 @@
-<app-top-cards></app-top-cards>
+<app-top-cards>
+
+</app-top-cards>
 <!-- ============================================================== -->
 <!-- Sales chart -->
 <!-- ============================================================== -->
-<div class="row">
+<div class="row " style = "margin-top: 6rem;">
   <div class="col-lg-6 mt-3">
     <app-sales-summary [dataChart]="velocidade"  [categories]="cat"></app-sales-summary>
   </div>
   <div class="col-lg-6 mt-3">
-    <app-sales-summary [dataChart]="aceleracao"  [categories]="cat"></app-sales-summary>
+    <app-sales-summary [dataChart]="rpm"  [categories]="cat"></app-sales-summary>
   </div>
 
 </div>
@@ -19,6 +21,13 @@
   <div class="col-lg-6 mt-3">
     <app-sales-summary [dataChart]="consumo"  [categories]="cat"></app-sales-summary>
   </div>
+</div>
+<div class="row">
+
+  <div class="col-lg-12 mt-3">
+    <app-sales-summary [dataChart]="geral"  [categories]="cat"></app-sales-summary>
+  </div>
+
 </div>
 <!-- ============================================================== -->
 <!-- Sales chart -->
