@@ -9,7 +9,7 @@ import {
   ApexXAxis,
   ApexTooltip,
   ApexTheme,
-  ApexGrid
+  ApexGrid,
 } from 'ng-apexcharts';
 
 export type salesChartOptions = {
@@ -34,6 +34,7 @@ export type salesChartOptions = {
 export class SalesSummaryComponent implements OnInit {
   @Input() categories : string[];
   @Input() dataChart : any ;
+  playPause:boolean =true;
 
 
 
@@ -54,7 +55,10 @@ export class SalesSummaryComponent implements OnInit {
         toolbar: {
           show: false
         },
-        stacked:true,
+        zoom: {
+          enabled: false,
+        },
+        stacked:false ,
         animations: {
           enabled: false,
           easing: 'easeinout',
@@ -70,10 +74,14 @@ export class SalesSummaryComponent implements OnInit {
       }
       },
       dataLabels: {
-        enabled: false
+        offsetX:5,
+        enabled:false,
+        background:{
+        borderRadius: 8,
+        }
       },
       stroke: {
-        width: '1',
+        width: '2',
         curve: 'smooth',
 
       },
@@ -86,10 +94,12 @@ export class SalesSummaryComponent implements OnInit {
 
       },
       yaxis:{
+        tickAmount:8,
 
       },
       tooltip: {
-        theme: 'dark'
+        enabled:true,
+        theme: 'dark',
       }
     };
   }
@@ -101,8 +111,16 @@ export class SalesSummaryComponent implements OnInit {
   }
 
   ngOnChanges(c:any){
+    if(!this.playPause)
+      return;
     this.salesChartOptions.series = c.dataChart.currentValue;
-  }
+    if(this.salesChartOptions.series?.length && this.salesChartOptions.dataLabels && this.salesChartOptions.series?.length > 1){
+      this.salesChartOptions.dataLabels.enabled = true;
+      this.salesChartOptions.yaxis = {max:500};
+    }
+}
+
+
 
 
 

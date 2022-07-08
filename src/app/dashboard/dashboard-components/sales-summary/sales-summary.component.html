@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="d-md-flex align-items-center">
             <div>
-                <h4 class="card-title">{{dataChart[0].name}}</h4>
+                <h4 class="card-title">{{ dataChart[0].nome || dataChart[0].name }}</h4>
                 <h5 class="card-subtitle text-muted">Monitoramento em tempo real</h5>
             </div>
         </div>
@@ -10,13 +10,16 @@
             <!-- column -->
             <div class="col-lg-12">
                 <div>
+                  <img src="../../../../assets/icons/pause-fill.svg" style="width:2rem" *ngIf="playPause" (click)="playPause = !playPause">
+                  <img src="../../../../assets/icons/play-fill.svg" style="width:2rem" *ngIf="!playPause" (click) = "playPause = !playPause">
                     <div class="d-flex flex-column w-100">
                         <apx-chart [series]="salesChartOptions.series" [chart]="salesChartOptions.chart"
                             [xaxis]="salesChartOptions.xaxis" [yaxis]="salesChartOptions.yaxis"
                             [grid]="salesChartOptions.grid" [stroke]="salesChartOptions.stroke"
                             [tooltip]="salesChartOptions.tooltip" [dataLabels]="salesChartOptions.dataLabels"
                             [legend]="salesChartOptions.legend" [colors]="salesChartOptions.colors"
-                            [markers]="salesChartOptions.markers">
+                            [markers]="salesChartOptions.markers"
+                            >
                         </apx-chart>
                     </div>
                 </div>
